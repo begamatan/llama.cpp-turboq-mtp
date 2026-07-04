@@ -2729,8 +2729,8 @@ private:
                             );
 
                             if (it != slot.prompt.checkpoints.rend()) {
-                                const size_t checkpoint_size = it->data.size();
-                                const size_t n = llama_state_seq_set_data_ext(ctx_tgt, it->data.data(), checkpoint_size, slot.id, LLAMA_STATE_SEQ_FLAGS_PARTIAL_ONLY);
+                                const size_t checkpoint_size = it->data_tgt.size();
+                                const size_t n = llama_state_seq_set_data_ext(ctx_tgt, it->data_tgt.data(), checkpoint_size, slot.id, LLAMA_STATE_SEQ_FLAGS_PARTIAL_ONLY);
 
                                 if (n == checkpoint_size) {
                                     const llama_pos pos_restored = std::max(it->pos_min + 1, it->pos_max);
